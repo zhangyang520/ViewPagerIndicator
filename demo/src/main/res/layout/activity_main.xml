@@ -82,7 +82,7 @@
                 app:vpi_distanceType="BY_LAYOUT"
                 app:vpi_indicatorType="CIRCLE_LINE"
                 app:vpi_radius="10dp"
-                app:vpi_selected_color="#FF239AF5"
+                app:vpi_selected_color="#ff7733"
                 />
             <TextView
                 android:layout_width="match_parent"

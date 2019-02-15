@@ -61,7 +61,7 @@
                 android:layout_height="50dp"
                 android:background="#efefef"
                 app:vpi_default_color="#cdcdcd"
-                app:vpi_distance="800dp"
+                app:vpi_distance="100dp"
                 app:vpi_distanceType="BY_LAYOUT"
                 app:vpi_indicatorType="LINE"
                 app:vpi_length="24dp"

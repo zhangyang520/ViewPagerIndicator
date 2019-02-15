@@ -121,9 +121,10 @@ public class ViewPagerIndicator extends View {
 
                 break;
             case IndicatorType.CIRCLE_LINE://圆线
-
+                System.out.println("CIRCLE_LINE mNum:"+mNum+"..mPosition:"+mPosition);
                 if (mPosition == mNum - 1) {//最后一个 右滑
                     //第一个 线 选中 消失
+                    System.out.println("CIRCLE_LINE mNum 1111:"+mNum+"..mPosition:"+mPosition);
                     float leftClose = -(mNum) * 0.5f * mDistance - mRadius;
                     float rightClose = leftClose + 2 * mRadius + mOffset;
                     float topClose = -mRadius;
@@ -136,28 +137,38 @@ public class ViewPagerIndicator extends View {
                     float topOpen = -mRadius;
                     float bottomOpen = mRadius;
                     RectF rectOpen = new RectF(leftOpen, topOpen, rightOpen, bottomOpen);// 设置个新的长方形
-                    canvas.drawRoundRect(rectOpen, mRadius, mRadius, paintStroke);
-                    //圆
-                    for (int i = 1; i < mNum; i++) {
+                    canvas.drawRoundRect(rectOpen, mRadius, mRadius, paintFill);
+                    //绘制前几个点
+                    for (int i = 1; i < mNum-1; i++) {
                         canvas.drawCircle(rightClose - mRadius + i * mDistance, 0, mRadius, paintStroke);
                     }
 
+                    //绘制最后一个 点位置
+                    for (int i = mNum-1; i < mNum; i++){
+                        canvas.drawCircle(rightClose - mRadius + i * mDistance, 0, mRadius, paintFill);
+                    }
                 } else {
+                    System.out.println("CIRCLE_LINE mNum 2222:"+mNum+"..mPosition:"+mPosition);
                     //第一个 线 选中 消失
                     float leftClose = -(mNum) * 0.5f * mDistance + mPosition * mDistance - mRadius;
                     float rightClose = leftClose + 2 * mRadius + mDistance - mOffset;
                     float topClose = -mRadius;
                     float bottomClose = mRadius;
                     RectF rectClose = new RectF(leftClose, topClose, rightClose, bottomClose);// 设置个新的长方形
-                    canvas.drawRoundRect(rectClose, mRadius, mRadius, paintStroke);
+                    canvas.drawRoundRect(rectClose, mRadius, mRadius, paintFill);
                     //第二个 线  显示
                     if (mPosition < mNum - 1) {
                         float rightOpen = -(mNum) * 0.5f * mDistance + (mPosition + 2) * mDistance + mRadius;
                         float leftOpen = rightOpen - 2 * mRadius - mOffset;
+                        System.out.println("CIRCLE_LINE mNum 2222 rightOpen-leftOpen:"+(rightOpen-leftOpen)+"...mRadius:"+mRadius);
                         float topOpen = -mRadius;
                         float bottomOpen = mRadius;
                         RectF rectOpen = new RectF(leftOpen, topOpen, rightOpen, bottomOpen);// 设置个新的长方形
-                        canvas.drawRoundRect(rectOpen, mRadius, mRadius, paintStroke);
+                        if(rightOpen-leftOpen==2*mRadius){
+                            canvas.drawRoundRect(rectOpen, mRadius, mRadius, paintStroke);
+                        }else{
+                            canvas.drawRoundRect(rectOpen, mRadius, mRadius, paintFill);
+                        }
                     }
                     //圆
                     for (int i = mPosition + 3; i <= mNum; i++) {
