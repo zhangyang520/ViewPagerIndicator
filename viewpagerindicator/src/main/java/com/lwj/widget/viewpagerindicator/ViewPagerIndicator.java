@@ -164,7 +164,7 @@ public class ViewPagerIndicator extends View {
                         float topOpen = -mRadius;
                         float bottomOpen = mRadius;
                         RectF rectOpen = new RectF(leftOpen, topOpen, rightOpen, bottomOpen);// 设置个新的长方形
-                        if(rightOpen-leftOpen==2*mRadius){
+                        if((int)(rightOpen-leftOpen)==(int) (2*mRadius)){
                             canvas.drawRoundRect(rectOpen, mRadius, mRadius, paintStroke);
                         }else{
                             canvas.drawRoundRect(rectOpen, mRadius, mRadius, paintFill);
