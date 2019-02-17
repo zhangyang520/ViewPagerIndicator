@@ -544,6 +544,7 @@ public class ViewPagerIndicator extends View {
      * @param isLeft   是否左滑
      */
     public void move(float percent, int position, boolean isLeft) {
+        System.out.println("addOnPageChangeListener move position:"+position+"....mIsInfiniteCircle:"+mIsInfiniteCircle+"..mPosition:"+mPosition);
         mPosition = position;
         mPercent = percent;
         mIsLeft = isLeft;
@@ -712,6 +713,8 @@ public class ViewPagerIndicator extends View {
 
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                System.out.println("addOnPageChangeListener onPageScrolled position:"+position
+                                            +"....mIsInfiniteCircle:"+mIsInfiniteCircle+"...positionOffset："+positionOffset);
                 if(!mAnimation){
                     //不需要动画
                     return;
@@ -741,6 +744,8 @@ public class ViewPagerIndicator extends View {
 
             @Override
             public void onPageSelected(int position) {
+                System.out.println("addOnPageChangeListener onPageSelected position:"+position
+                        +"....mIsInfiniteCircle:"+mIsInfiniteCircle);
                 if(mAnimation){
                     //需要动画
                     return;

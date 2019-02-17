@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:clipChildren="false"
+    android:layout_height="200dp">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/viewpager_height"
+        android:layout_gravity="center"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:overScrollMode="never"
+        android:clipChildren="false">
+    </android.support.v4.view.ViewPager>
+
+    <com.lwj.widget.viewpagerindicator.ViewPagerIndicator
+        android:id="@+id/indicator_line"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        app:vpi_default_color="#cdcdcd"
+        app:vpi_distance="200dp"
+        app:vpi_distanceType="BY_LAYOUT"
+        app:vpi_indicatorType="CIRCLE_LINE"
+        app:vpi_length="15dp"
+        app:vpi_radius="2dp"
+        app:vpi_selected_color="@color/day_bnbActiveColor"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>
